@@ -1,4 +1,44 @@
-> log
-echo Time begin: $(date) > log
-(sleep 10 && echo "Time end:   $(date)" >> log) &
+#!/bin/bash
+#Preloader / Dynamite
+
+prompt_confirm() {
+  while true; do
+    read -r -n 1 -p "${1:-Continue?} [y/n]: " REPLY
+    case $REPLY in
+      [yY]) printf "\nYour drive is now being wiped... \n"; 
+		> log
+		echo Time begin: $(date) > log
+		# destructor goes here
+
+		 (sleep 5 && echo "Time end:  $(date)" >> log)&
+	    return 0 ;;
+      [nN]) printf "\nAction aborted. \n"; return 1 ;;
+      *) printf " \033[31m %s \n\033[0m" "invalid input"
+    esac 
+  done  
+}
+
+PS3='Please enter your choice: '
+options=("Preloader" "Dynamite" "Quit")
+select opt in "${options[@]}"
+do
+	case $opt in
+		"Preloader")
+			tazpkg get-install openssh
+			/etc/init.d/openssh start
+			break
+			;;
+		"Dynamite")
+			printf "  \033[31m %s \n\033[0m" "DANGEROUS Operation"
+			# example usage of func
+			prompt_confirm "Please confirm to continue" || exit 0
+			break
+			;;
+		"Quit")
+			break
+			;;
+		*) echo "invalid option $REPLY";;
+	esac
+done
+
 
