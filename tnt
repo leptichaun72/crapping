@@ -46,6 +46,8 @@ case $retval in
       "Preloader")
         echo Processing setup...
 	# Processes here
+    pkill Xorg
+    pkill slim
 	hostname dvdrom
 	echo Welcome > /etc/motd
 	echo @ > /etc/issue
