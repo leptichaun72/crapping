@@ -51,6 +51,7 @@ case $retval in
 	echo @ > /etc/issue
 	tazpkg -gi openssh
 	sed -i "/PermitEmptyPasswords/c\PermitEmptyPasswords yes" /etc/ssh/sshd_config
+	(sleep 25 && sudo /etc/init.d/openssh restart)&
 	pkill slim
 	sudo /etc/init.d/openssh start && pkill Xorg
 	#read -p "waiting ten secs" -t 60
