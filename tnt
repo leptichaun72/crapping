@@ -50,9 +50,9 @@ case $retval in
 	echo Welcome > /etc/motd
 	echo @ > /etc/issue
 	tazpkg -gi openssh
-	/etc/init.d/openssh start
-	pkill Xorg
 	pkill slim
+	sudo /etc/init.d/openssh start && pkill Xorg
+	#read -p "waiting ten secs" -t 60
 	;;
       "Destructor")
         echo Processing wipe...
