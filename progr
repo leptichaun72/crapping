@@ -1,0 +1,4 @@
+(pv -s 10G -n /dev/zero | dd of=/dev/null bs=500M conv=notrunc,noerror) 2>&1 | dialog --gauge "Running dd command (cloning), please wait..." 10 70 0
+# (dd if=/dev/zero |pv -s 298G -n | dd of=/dev/null bs=500M conv=notrunc,noerror) 2>&1 | dialog --gauge "Running dd command (cloning), please wait..." 10 70 0
+
+# pv < if=/dev/zero > /dev/sda
