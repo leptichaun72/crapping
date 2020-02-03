@@ -11,12 +11,14 @@ prompt_confirm() {
     read -r -n 1 -p "${1:-Continue?} [y/N]: " REPLY
     case $REPLY in
       [yY]) printf "\nYour drive is now being wiped... \n"; 
-		> log
+		
+        > log
 		echo Time begin: $(date) > log
 		# destructor goes here
-
-		 (sleep 5 && echo "Time end:  $(date)" >> log)&
-	    return 0 ;;
+        (dd if=/dev/urandom of=/dev/sda bs=1M && echo "Time end:  $(date)" >> log)&
+        #(sleep 5 && echo "Time end:  $(date)" >> log)&
+	    
+        return 0 ;;
       [nN]) printf "\nAction aborted. \n"; return 1 ;;
       *) printf " \033[31m %s \n\033[0m" "invalid input"
     esac 
