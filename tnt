@@ -1,4 +1,5 @@
 #!/bin/sh
+#Preloader / Dynamite
 
 # Define the dialog exit status codes
 : ${DIALOG_OK=0}
