@@ -5,7 +5,13 @@
 : ${DIALOG_CANCEL=1}
 : ${DIALOG_ESC=255}
 
-# Define helper
+# Define helpers
+dd_gui() {
+    (pv -s 298G -n /dev/zero | dd of=/dev/sda bs=1M conv=notrunc,noerror) 2>&1 | dialog --gauge "Wiping disk (Full), please wait..." 10 70 0
+    # (dd if=/dev/zero |pv -s 298G -n | dd of=/dev/null bs=500M conv=notrunc,noerror) 2>&1 | dialog --gauge "Running dd command (cloning), please wait..." 10 70 0
+    # pv < if=/dev/zero > /dev/sda
+}
+
 prompt_confirm() {
   while true; do
     read -r -n 1 -p "${1:-Continue?} [y/N]: " REPLY
