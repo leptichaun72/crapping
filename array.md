@@ -1,5 +1,9 @@
-#JS - Arrays
+##Arrays
 
-Using new Array(size) for performance gains
+###new Array(size) or [ ]
 
-trial here
+Always:
+'''javascript
+var arr = [];
+'''
+
