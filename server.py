@@ -13,5 +13,6 @@ while True:
     conn.send("I am SERVER")
   conn.close()
   print 'client disconnected'
+  print 'hey u'
 
    
