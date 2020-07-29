@@ -1,0 +1,70 @@
+# Nmap 7.80 scan initiated Fri Jul 17 16:11:34 2020 as: /data/data/com.termux/files/usr/bin/nmap -sC -oN r6400-nmap 192.168.1.1
+Nmap scan report for 192.168.1.1
+Host is up (0.011s latency).
+Not shown: 992 closed ports
+PORT      STATE SERVICE
+23/tcp    open  telnet
+53/tcp    open  domain
+| dns-nsid: 
+|   NSID: Answerx_On_nyquny91-dns-cac-307 (416e73776572785f4f6e5f6e7971756e7939312d646e732d6361632d333037)
+|   id.server: Answerx_On_nyquny91-dns-cac-307
+|_  bind.version: dnsmasq-2.78
+80/tcp    open  http
+| http-auth: 
+| HTTP/1.0 401 Unauthorized\x0D
+|_  Basic realm=NETGEAR R6400
+|_http-title: 401 Unauthorized
+548/tcp   open  afp
+| afp-serverinfo: 
+|   Server Flags: 
+|     Flags hex: 0x8f79
+|     Super Client: true
+|     UUIDs: true
+|     UTF8 Server Name: true
+|     Open Directory: true
+|     Reconnect: false
+|     Server Notifications: true
+|     TCP/IP: true
+|     Server Signature: true
+|     Server Messages: true
+|     Password Saving Prohibited: false
+|     Password Changing: false
+|     Copy File: true
+|   Server Name: R6400
+|   Machine Type: Netatalk2.2.5
+|   AFP Versions: AFP2.2, AFPX03, AFP3.1, AFP3.2, AFP3.3
+|   UAMs: DHX2, 2-Way Randnum exchange, Randnum exchange, DHCAST128, Cleartxt Passwrd, No User Authent
+|   Server Signature: a4072bf14d1f95d3377033dc3d501193
+|   Network Addresses: 
+|     192.168.1.1
+|_  UTF8 Server Name: R6400
+631/tcp   open  ipp
+5000/tcp  open  upnp
+8200/tcp  open  trivnet1
+20005/tcp open  btx
+MAC Address: A0:04:60:3B:8B:0A (Netgear)
+
+# Nmap done at Fri Jul 17 16:12:07 2020 -- 1 IP address (1 host up) scanned in 32.42 seconds
+# Nmap 7.80 scan initiated Tue Jul 28 11:21:51 2020 as: /data/data/com.termux/files/usr/bin/nmap -sC -oN gear-info-detailed -append-output 192.168.1.8
+Nmap scan report for 192.168.1.8
+Host is up (0.015s latency).
+Not shown: 991 closed ports
+PORT      STATE SERVICE
+7676/tcp  open  imqbrokerd
+8001/tcp  open  vcom-tunnel
+8002/tcp  open  teradataordbms
+| ssl-cert: Subject: commonName=SmartViewSDK/organizationName=SmartViewSDK/countryName=KR
+| Subject Alternative Name: IP Address:127.0.0.1
+| Not valid before: 2016-09-21T08:36:31
+|_Not valid after:  2036-09-21T08:36:31
+|_ssl-date: TLS randomness does not represent time
+8080/tcp  open  http-proxy
+|_http-title: 404 - Not Found
+9999/tcp  open  abyss
+32768/tcp open  filenet-tms
+32769/tcp open  filenet-rpc
+32770/tcp open  sometimes-rpc3
+32771/tcp open  sometimes-rpc5
+MAC Address: 54:BD:79:88:F3:AB (Samsung Electronics)
+
+# Nmap done at Tue Jul 28 11:22:34 2020 -- 1 IP address (1 host up) scanned in 43.51 seconds

@@ -1,0 +1,43 @@
+https://unix.stackexchange.com/questions/53196/how-to-block-https-facebook-site-using-iptables
+https://medium.com/p/bb0aa2449c1a/responses/show
+https://www.techrepublic.com/article/how-to-speed-up-dns-caching-on-your-linux-machines-with-dnsmasq/
+https://unix.stackexchange.com/questions/162973/how-to-measure-dns-cache-efficiency-cached-items
+
+preinit-+-KC_BONJOUR---KC_BONJOUR---3*[KC_BONJOUR]
+        |-KC_PRINT---KC_PRINT---3*[KC_PRINT]
+        |-acl_logd
+        |-acsd
+        |-afpd
+        |-arp_check
+        |-aws_json
+        |-check_db
+        |-check_fw
+        |-check_ra
+        |-ddnsd
+        |-dlnad
+        |-dnsRedirectRepl
+        |-dnsmasq
+        |-eapd
+        |-email
+        |-hd-idle
+        |-heartbeat
+        |-httpd
+        |-lld2d
+        |-lld_xbox
+        |-mevent
+        |-minidlna.exe---minidlna.exe---minidlna.exe
+        |-nas
+        |-scheact
+        |-speedtest
+        |-swresetd
+        |-syslogd
+        |-telnetenabled
+        |-timesync
+        |-udhcpc
+        |-udhcpd
+        |-upnpd
+        |-utelnetd---sh---busybox-armv5l
+        |-wlanconfigd
+        |-wps_monitor
+        |-wpsd
+        `-xagent---xagent---xagent---4*[xagent]
