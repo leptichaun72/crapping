@@ -25,6 +25,24 @@ two(){
   
   pause
 }
+three(){
+  echo tree
+
+  pause
+}
+four(){
+  echo "Started reconfigured DNSMasq"
+  dnsmasq -h -n -c 0 -N -i br0 -r /tmp/resolv.conf -u r -H /media/cooler
+
+  pause
+}
+five(){
+  echo "Start analyzing packets..."
+  tcpdump -n -i br0 -A -s 0 "src 192.168.1.2 and (port 80 or port 443)"
+  ## tcpdump -n -i br0 dst port 53 2>&1
+  
+  pause
+}
 
 # function to display menus
 show_menus() {
@@ -33,7 +51,10 @@ show_menus() {
   echo "~~~~~~~~~~~~~~~~~~~~~"
   echo "1. Setup environment"
   echo "2. Start FTP daemon"
-  echo "3. Exit"
+  echo "3. IP Firewall"
+  echo "4. Restart 'hosted' dnsmasq"
+  echo "5. Tcpdump"
+  echo "6. Exit"
 }
 # read input from the keyboard and take a action
 # invoke the one() when the user select 1 from the menu option.
@@ -41,11 +62,14 @@ show_menus() {
 # Exit when user the user select 3 form the menu option.
 read_options(){
   local choice
-  read -p "Enter choice [ 1 - 3] " choice
+  read -p "Enter choice [1 - 6] " choice
   case $choice in
     1) one ;;
     2) two ;;
-    3) break;;
+    3) three ;;
+    4) four ;;
+    5) five ;;
+    6) break;;
     *) echo -e "${RED}Error...${STD}" && sleep 2
   esac
 }
