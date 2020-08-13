@@ -16,6 +16,7 @@ one(){
   echo "Setting the environment..."
   export PATH=$PATH:/media
   alias bb="busybox-armv5l"
+  alias ipt="iptables -L --line-numbers"
 
   pause
 }
@@ -26,7 +27,9 @@ two(){
   pause
 }
 three(){
-  echo tree
+  # Get ip of jerk
+  ip=$(arp -a | grep 00:1c | cut -c4-14)
+  iptables -A FORWARD -s $ip -j DROP
 
   pause
 }
@@ -43,6 +46,13 @@ five(){
   
   pause
 }
+six(){
+  # Get ip of jerk
+  ip=$(arp -a | grep 00:1c | cut -c4-14)
+  echo $ip
+
+  pause
+}
 
 # function to display menus
 show_menus() {
@@ -54,7 +64,8 @@ show_menus() {
   echo "3. IP Firewall"
   echo "4. Restart 'hosted' dnsmasq"
   echo "5. Tcpdump"
-  echo "6. Exit"
+  echo "6. Remove MAC"
+  echo "7. Exit"
 }
 # read input from the keyboard and take a action
 # invoke the one() when the user select 1 from the menu option.
@@ -69,7 +80,8 @@ read_options(){
     3) three ;;
     4) four ;;
     5) five ;;
-    6) break;;
+    6) six ;;
+    7) break;;
     *) echo -e "${RED}Error...${STD}" && sleep 2
   esac
 }
