@@ -69,11 +69,11 @@ six(){
     #mac 70:bc:10:5f:2a:15 
     #mac 58:63:56:7f:bf:03
     #mac e8:e8:b7:67:b3:55
-    sleep 20
+    sleep 15
     iptables -D FORWARD 1
     #iptables -D FORWARD 1
     #iptables -D FORWARD 1
-    sleep 10
+    sleep 5
   done
 
 #  foo=1
