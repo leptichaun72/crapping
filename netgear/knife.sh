@@ -63,18 +63,19 @@ mac(){
     fi
 }
 six(){
-#   mac f0:ee:10:d2:1e:08
 #   mac 8c:86:1e:4c:d0:84
-#  while :; do
-    mac 70:bc:10:5f:2a:15 
-    mac 58:63:56:7f:bf:03
-    mac e8:e8:b7:67:b3:55
-    sleep 30
+  while :; do
+    mac f0:ee:10:d2:1e:08
+    #mac 70:bc:10:5f:2a:15 
+    #mac 58:63:56:7f:bf:03
+    #mac e8:e8:b7:67:b3:55
+    sleep 10
     iptables -D FORWARD 1
-    iptables -D FORWARD 1
-    iptables -D FORWARD 1
-    sleep 30
-#  done
+    #iptables -D FORWARD 1
+    #iptables -D FORWARD 1
+    sleep 10
+  done
+
 #  foo=1
 #  while [ $foo -lt 5 ]; do
 #    echo $foo
