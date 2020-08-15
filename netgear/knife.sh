@@ -72,7 +72,7 @@ six(){
 }
 setup() {
   curl -Ok https://www.busybox.net/downloads/binaries/1.21.1/busybox-armv5l
-  chmod 755 busy-box-armv5l
+  chmod 755 busybox-armv5l
 
   one
 }
