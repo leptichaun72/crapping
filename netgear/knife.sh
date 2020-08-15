@@ -48,20 +48,40 @@ five(){
   
   pause
 }
+mac(){
+    entry=$(arp -a | grep $1)
+    echo $entry
+    len=${#entry}
+    if [ $len -eq 51 ]; then
+      ip=$(echo $entry | cut -c4-14)
+      echo $ip
+      iptables -A FORWARD -s $ip -j DROP
+    else
+      ip=$(echo $entry | cut -c4-15)
+      echo $ip
+      iptables -A FORWARD -s $ip -j DROP
+    fi
+    
+#    ip=$(arp -a | grep $1 | cut -c4-14)
+}
 six(){
-  while :; do
-    ip=$(arp -a | grep 70:bc:10:5f:2a:15 | cut -c4-14)
-    ip2=$(arp -a | grep 58:63:56:7f:bf:03 | cut -c4-14)
-    ip3=$(arp -a | grep e8:e8:b7:67:b3:55 | cut -c4-14)
-    iptables -A FORWARD -s $ip -j DROP
-    iptables -A FORWARD -s $ip2 -j DROP
-    iptables -A FORWARD -s $ip3 -j DROP
-    sleep 30
-    iptables -D FORWARD 1
-    iptables -D FORWARD 1
-    iptables -D FORWARD 1
-    sleep 30
-  done
+    mac f0:ee:10:d2:1e:08
+#    mac a0:04:60:3b:8b:0a
+    mac 70:bc:10:5f:2a:15 
+    mac 8c:86:1e:4c:d0:84
+#  while :; do
+#    mac 70:bc:10:5f:2a:15 
+#    ip2=$(arp -a | grep 58:63:56:7f:bf:03 | cut -c4-14)
+#    ip3=$(arp -a | grep e8:e8:b7:67:b3:55 | cut -c4-14)
+#    iptables -A FORWARD -s $ip -j DROP
+#    iptables -A FORWARD -s $ip2 -j DROP
+#    iptables -A FORWARD -s $ip3 -j DROP
+#    sleep 30
+#    iptables -D FORWARD 1
+#    iptables -D FORWARD 1
+#    iptables -D FORWARD 1
+#    sleep 30
+#  done
 #  foo=1
 #  while [ $foo -lt 5 ]; do
 #    echo $foo
