@@ -51,8 +51,8 @@ five(){
 six(){
   while :; do
     ip=$(arp -a | grep 70:bc:10:5f:2a:15 | cut -c4-14)
-    ip2=$(arp -a | grep 58:63:56:7F:BF:03 | cut -c4-14)
-    ip3=$(arp -a | grep E8:E8:B7:67:B3:55 | cut -c4-14)
+    ip2=$(arp -a | grep 58:63:56:7f:bf:03 | cut -c4-14)
+    ip3=$(arp -a | grep e8:e8:b7:67:b3:55 | cut -c4-14)
     iptables -A FORWARD -s $ip -j DROP
     iptables -A FORWARD -s $ip2 -j DROP
     iptables -A FORWARD -s $ip3 -j DROP
