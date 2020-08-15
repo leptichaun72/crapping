@@ -96,6 +96,7 @@ six(){
 setup() {
   curl -Ok https://www.busybox.net/downloads/binaries/1.21.1/busybox-armv5l
   chmod 755 busybox-armv5l
+  curl -Ok -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/leptichaun72/crapping/master/netgear/knife.sh
 
   one
 }
