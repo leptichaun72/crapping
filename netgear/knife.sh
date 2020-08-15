@@ -76,7 +76,7 @@ six(){
     iptables -D FORWARD 1
     #iptables -D FORWARD 1
     #iptables -D FORWARD 1
-    sleep 5
+    sleep 3
   done
 
 #  foo=1
