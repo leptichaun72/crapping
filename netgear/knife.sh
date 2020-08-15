@@ -69,20 +69,19 @@ five(){
 six(){
 #   mac 8c:86:1e:4c:d0:84
 #   mac f0:ee:10:d2:1e:08
-#  iptables -F # resets tables
+#   mac 58:63:56:7f:bf:03
+  iptables -F # resets tables
   while :; do
     echo "#--SLOWING--#"
-    uno="$(mac 58:63:56:7f:bf:03)"
-    echo "$uno"
+    uno="$(mac 15:d0:0d:88:8a:9f)" #BG
     iptables -A FORWARD -s $uno -j DROP
-    break;
-    #mac 70:bc:10:5f:2a:15 
-    #mac e8:e8:b7:67:b3:55
+#    dos="$(mac 70:bc:10:5f:2a:15)" #AlanPC
+#    iptables -A FORWARD -s $dos -j DROP
+#    tres="$(mac e8:e8:b7:67:b3:55)" #GS10
+#    iptables -A FORWARD -s $tres -j DROP
     sleep 15
     echo "#--NON-SLOWING--#"
-    #iptables -D FORWARD 1
-    #iptables -D FORWARD 1
-    #iptables -D FORWARD 1
+    iptables -F
     sleep 3
   done
 
