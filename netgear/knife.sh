@@ -56,11 +56,11 @@ six(){
     iptables -A FORWARD -s $ip -j DROP
     iptables -A FORWARD -s $ip2 -j DROP
     iptables -A FORWARD -s $ip3 -j DROP
-    sleep 5
+    sleep 30
     iptables -D FORWARD 1
     iptables -D FORWARD 1
     iptables -D FORWARD 1
-    sleep 5
+    sleep 30
   done
 #  foo=1
 #  while [ $foo -lt 5 ]; do
