@@ -27,9 +27,11 @@ two(){
   pause
 }
 three(){
-  # Get ip of jerk
-  ip=$(arp -a | grep 00:1c | cut -c4-14)
+  # Get ip of pwasai
+  ip=$(arp -a | grep 70:bc:10:5f:2a:15 | cut -c4-14)
+  ip2=$(arp -a | grep 58:63:56:7F:BF:03 | cut -c4-14)
   iptables -A FORWARD -s $ip -j DROP
+  iptables -A FORWARD -s $ip2 -j DROP
 
   pause
 }
@@ -47,11 +49,32 @@ five(){
   pause
 }
 six(){
-  # Get ip of jerk
-  ip=$(arp -a | grep 00:1c | cut -c4-14)
-  echo $ip
+  while :; do
+    ip=$(arp -a | grep 70:bc:10:5f:2a:15 | cut -c4-14)
+    ip2=$(arp -a | grep 58:63:56:7F:BF:03 | cut -c4-14)
+    ip3=$(arp -a | grep E8:E8:B7:67:B3:55 | cut -c4-14)
+    iptables -A FORWARD -s $ip -j DROP
+    iptables -A FORWARD -s $ip2 -j DROP
+    iptables -A FORWARD -s $ip3 -j DROP
+    sleep 5
+    iptables -D FORWARD 1
+    iptables -D FORWARD 1
+    iptables -D FORWARD 1
+    sleep 5
+  done
+#  foo=1
+#  while [ $foo -lt 5 ]; do
+#    echo $foo
+#    foo=$(( $foo + 1 ))
+#  done
 
   pause
+}
+setup() {
+  curl -Ok https://www.busybox.net/downloads/binaries/1.21.1/busybox-armv5l
+  chmod 755 busy-box-armv5l
+
+  one
 }
 
 # function to display menus
@@ -64,7 +87,7 @@ show_menus() {
   echo "3. IP Firewall"
   echo "4. Restart 'hosted' dnsmasq"
   echo "5. Tcpdump"
-  echo "6. Remove MAC"
+  echo "6. Loop IP Firewall"
   echo "7. Exit"
 }
 # read input from the keyboard and take a action
@@ -73,7 +96,7 @@ show_menus() {
 # Exit when user the user select 3 form the menu option.
 read_options(){
   local choice
-  read -p "Enter choice [1 - 6] " choice
+  read -p "Enter choice [1 - 7] or s " choice
   case $choice in
     1) one ;;
     2) two ;;
@@ -82,6 +105,7 @@ read_options(){
     5) five ;;
     6) six ;;
     7) break;;
+    s) setup;;
     *) echo -e "${RED}Error...${STD}" && sleep 2
   esac
 }
