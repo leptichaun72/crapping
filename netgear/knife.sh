@@ -12,18 +12,6 @@ STD='\033[0;0;39m'
 pause(){
   read -p "Press [Enter] key to continue..." fackEnterKeya
 }
-mac(){
-    entry=$(arp -a | grep $1)
-    echo $entry
-    len=${#entry}
-    if [ $len -eq 51 ]; then
-      ip=$(echo $entry | cut -c4-14)
-      echo $ip
-    else
-      ip=$(echo $entry | cut -c4-15)
-      echo $ip
-    fi
-}
 one(){
   echo "Setting the environment..."
   export PATH=$PATH:/media
@@ -38,11 +26,29 @@ two(){
   
   pause
 }
+mac(){
+#    echo $1
+    entry=$(arp -a | grep $1)
+#    echo $entry
+    len=${#entry}
+    #if [ $len -eq 51 ]; then
+    #  ip=$(echo $entry | cut -c4-14)
+    #  echo $ip
+    #else
+    #  ip=$(echo $entry | cut -c4-15)
+    #  echo $ip
+    #fi
+}
 three(){
-  # Get ip of pwasai
-  arp -a | while IFS= read -r line ; do
-    foo=$(mac $line)
-    echo $foo
+  multi=$(arp -a)
+  for x in "$multi"
+  do
+    echo "$x"
+    line="$x"
+    len=${#line}
+    echo $len
+    #foo=$(mac $line)
+    #echo $foo
   done
 
   pause
