@@ -10,7 +10,19 @@ STD='\033[0;0;39m'
 # Step #2: User defined function
 # ----------------------------------
 pause(){
-  read -p "Press [Enter] key to continue..." fackEnterKey
+  read -p "Press [Enter] key to continue..." fackEnterKeya
+}
+mac(){
+    entry=$(arp -a | grep $1)
+    echo $entry
+    len=${#entry}
+    if [ $len -eq 51 ]; then
+      ip=$(echo $entry | cut -c4-14)
+      echo $ip
+    else
+      ip=$(echo $entry | cut -c4-15)
+      echo $ip
+    fi
 }
 one(){
   echo "Setting the environment..."
@@ -28,10 +40,10 @@ two(){
 }
 three(){
   # Get ip of pwasai
-  ip=$(arp -a | grep 70:bc:10:5f:2a:15 | cut -c4-14)
-  ip2=$(arp -a | grep 58:63:56:7F:BF:03 | cut -c4-14)
-  iptables -A FORWARD -s $ip -j DROP
-  iptables -A FORWARD -s $ip2 -j DROP
+  arp -a | while IFS= read -r line ; do
+    foo=$(mac $line)
+    echo $foo
+  done
 
   pause
 }
@@ -48,32 +60,20 @@ five(){
   
   pause
 }
-mac(){
-    entry=$(arp -a | grep $1)
-    echo $entry
-    len=${#entry}
-    if [ $len -eq 51 ]; then
-      ip=$(echo $entry | cut -c4-14)
-      echo $ip
-      iptables -A FORWARD -s $ip -j DROP
-    else
-      ip=$(echo $entry | cut -c4-15)
-      echo $ip
-      iptables -A FORWARD -s $ip -j DROP
-    fi
-}
 six(){
 #   mac 8c:86:1e:4c:d0:84
-  iptables -F # resets tables
+  #iptables -F # resets tables
   while :; do
     echo "#--SLOWING--#"
-    mac f0:ee:10:d2:1e:08
+    #mac f0:ee:10:d2:1e:08
+    uno="$(mac 58:63:56:7f:bf:03)"
+    echo "$uno haha"
+    #iptables -A FORWARD -s $ip -j DROP
     #mac 70:bc:10:5f:2a:15 
-    #mac 58:63:56:7f:bf:03
     #mac e8:e8:b7:67:b3:55
     sleep 15
     echo "#--NON-SLOWING--#"
-    iptables -D FORWARD 1
+    #iptables -D FORWARD 1
     #iptables -D FORWARD 1
     #iptables -D FORWARD 1
     sleep 3
@@ -101,7 +101,7 @@ show_menus() {
   echo "~~~~~~~~~~~~~~~~~~~~~"
   echo "1. Setup environment"
   echo "2. Start FTP daemon"
-  echo "3. IP Firewall"
+  echo "3. NIMBY IP Firewall"
   echo "4. Restart 'hosted' dnsmasq"
   echo "5. Tcpdump"
   echo "6. Loop IP Firewall"
