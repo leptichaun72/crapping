@@ -66,13 +66,13 @@ six(){
 #   mac 8c:86:1e:4c:d0:84
   iptables -F # resets tables
   while :; do
-    echo #--SLOWING--#
+    echo "#--SLOWING--#"
     mac f0:ee:10:d2:1e:08
     #mac 70:bc:10:5f:2a:15 
     #mac 58:63:56:7f:bf:03
     #mac e8:e8:b7:67:b3:55
     sleep 15
-    echo #--NON-SLOWING--#
+    echo "#--NON-SLOWING--#"
     iptables -D FORWARD 1
     #iptables -D FORWARD 1
     #iptables -D FORWARD 1
