@@ -29,15 +29,15 @@ two(){
 mac(){
 #    echo $1
     entry=$(arp -a | grep $1)
-#    echo $entry
+    echo $entry
     len=${#entry}
-    #if [ $len -eq 51 ]; then
-    #  ip=$(echo $entry | cut -c4-14)
-    #  echo $ip
-    #else
-    #  ip=$(echo $entry | cut -c4-15)
-    #  echo $ip
-    #fi
+    if [ $len -eq 51 ]; then
+      ip=$(echo $entry | cut -c4-14)
+      echo $ip
+    else
+      ip=$(echo $entry | cut -c4-15)
+      echo $ip
+    fi
 }
 three(){
   multi=$(arp -a)
@@ -68,18 +68,18 @@ five(){
 }
 six(){
 #   mac 8c:86:1e:4c:d0:84
-  #iptables -F # resets tables
+#   mac f0:ee:10:d2:1e:08
+  iptables -F # resets tables
   while :; do
     echo "#--SLOWING--#"
-    #mac f0:ee:10:d2:1e:08
     uno="$(mac 58:63:56:7f:bf:03)"
-    echo "$uno haha"
-    #iptables -A FORWARD -s $ip -j DROP
+    echo "$uno"
+    iptables -A FORWARD -s $uno -j DROP
     #mac 70:bc:10:5f:2a:15 
     #mac e8:e8:b7:67:b3:55
     sleep 15
     echo "#--NON-SLOWING--#"
-    #iptables -D FORWARD 1
+    iptables -D FORWARD 1
     #iptables -D FORWARD 1
     #iptables -D FORWARD 1
     sleep 3
