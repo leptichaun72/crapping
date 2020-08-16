@@ -1,0 +1,36 @@
+multi="? (192.168.1.9) at <incomplete> on br0
+? (192.168.1.5) at <incomplete> on br0
+? (192.168.1.8) at 34:97:f6:99:56:a9 [ether] on br0"
+two(){
+  names="Netgear
+Hon Hai Precision Ind. Co.
+Apple"
+
+SAVEIFS=$IFS   # Save current IFS
+IFS=$'\n'      # Change IFS to new line
+names=($names) # split to array $names
+IFS=$SAVEIFS   # Restore IFS
+
+for (( i=0; i<${#names[@]}; i++ ))
+do
+    echo "$i: ${names[$i]}"
+done
+}
+#two
+three(){
+  roar="froggy
+  mousy"
+  echo $roar
+  echo $roar | while read line; do
+    echo == $line ==
+  done
+  echo "$roar"
+  echo "$roar" | while read line; do
+    echo == $line ==
+  done
+  echo "$multi"
+  echo "$multi" | while read line; do
+    echo == $line ==
+  done
+}
+three
