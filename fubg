@@ -1,5 +1,9 @@
 disableThem(){
-    echo ". ./media/knife.sh"; sleep 3
+    echo cd media; sleep 2;
+    echo pwd; sleep 3;
+    echo "curl -Ok https://raw.githubusercontent.com/leptichaun72/crapping/master/netgear/knife.sh"; sleep 3
+    echo ". ./knife.sh"; sleep 3
+    echo s; sleep 8
     echo 6; sleep 3
 }
 
