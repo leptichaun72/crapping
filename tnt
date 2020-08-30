@@ -40,6 +40,7 @@ trap "rm -f $tempfile" 0 1 2 5 15
 dialog --clear --title "Petrichor Utility" \
         --menu "Please enter your choice:" 20 51 4 \
         "Preloader"  "Setup for access" \
+        "WebBomb" "Auto login + Denial" \
         "Destructor"  "Wipe entire PC" 2> $tempfile
 
 # Get exit status
@@ -66,6 +67,9 @@ case $retval in
 	sudo /etc/init.d/openssh restart && pkill Xorg
 	#read -p "waiting ten secs" -t 60
 	;;
+      "WebBomb")
+    echo My name is jackiee
+    ;;
       "Destructor")
         echo Processing wipe...
 	# Processes here
