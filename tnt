@@ -40,6 +40,7 @@ trap "rm -f $tempfile" 0 1 2 5 15
 dialog --clear --title "Petrichor Utility" \
         --menu "Please enter your choice:" 20 51 4 \
         "Preloader"  "Setup for access" \
+        "Adhoc" "Install commons" \
         "WebBomb" "Auto login + Denial" \
         "Destructor"  "Wipe entire PC" 2> $tempfile
 
@@ -67,6 +68,10 @@ case $retval in
 	sudo /etc/init.d/openssh restart && pkill Xorg
 	#read -p "waiting ten secs" -t 60
 	;;
+      "Adhoc")
+        echo Installing common packages...
+    tazpkg -gi curl nmap python git
+    ;;
       "WebBomb")
     disableThem(){
       echo cd media; sleep 1;
