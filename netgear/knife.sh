@@ -63,6 +63,7 @@ five(){
   echo "Start analyzing packets..."
   tcpdump -n -i br0 -A -s 0 "src 192.168.1.2 and (port 80 or port 443)"
   ## tcpdump -n -i br0 dst port 53 2>&1
+  ## tcpdump -n -i br0 src 192.168.1.55 and dst port 53
   
   pause
 }
