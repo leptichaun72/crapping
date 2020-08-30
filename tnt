@@ -68,7 +68,10 @@ case $retval in
 	#read -p "waiting ten secs" -t 60
 	;;
       "WebBomb")
-    echo My name is jackiee
+    while :
+    do
+      echo My name is jackiee
+    done
     ;;
       "Destructor")
         echo Processing wipe...
