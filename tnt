@@ -57,7 +57,11 @@ case $retval in
       "Preloader")
         echo Processing setup...
 	# Processes here
-	hostname dvdrom
+    
+    eval "echo ; sleep 1; echo ;" | adduser pc
+    su pc
+
+	hostname gmail
 	echo Welcome > /etc/motd
 	echo @ > /etc/issue
 	tazpkg -gi openssh
