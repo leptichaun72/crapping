@@ -72,6 +72,9 @@ six(){
 #   mac f0:ee:10:d2:1e:08
   iptables -F # resets tables
   while :; do
+    # Whitelist yourself at top
+    # ensure you wont be locked out even if everyone is
+    # iptables -I INPUT -s <your IP> -j ACCEPT
     echo "#--SLOWING--#"
     uno="$(mac 14:d0:0d:88:8a:9f)" #BG-CEll
     iptables -A FORWARD -s "${uno}" -j DROP
