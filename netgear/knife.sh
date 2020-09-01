@@ -17,7 +17,7 @@ one(){
   export PATH=$PATH:/media
   alias bb="busybox-armv5l"
   alias ipt="iptables -L --line-numbers"
-
+  alias iptv="iptables -L -v -n --line-numbers"
   pause
 }
 two(){
