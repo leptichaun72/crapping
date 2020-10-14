@@ -80,14 +80,14 @@ six(){
     echo "#--SLOWING--#"
     uno="$(mac 14:d0:0d:88:8a:9f)" #BG-CEll
     iptables -A FORWARD -s "${uno}" -j DROP
-    dos="$(mac 58:63:56:7f:bf:03)" #BG-TV
-    iptables -A FORWARD -s $dos -j DROP
-#    tres="$(mac 70:bc:10:5f:2a:15)" #AlanPC
-#    iptables -A FORWARD -s $tres -j DROP
-#    quatro="$(mac e8:e8:b7:67:b3:55)" #GS10
-#    iptables -A FORWARD -s $quatro -j DROP
-#    cinco="$(mac 34:97:F6:99:56:A9)" #BrianPC
-#    iptables -A FORWARD -s $cinco -j DROP
+#    dos="$(mac 58:63:56:7f:bf:03)" #BG-TV
+#    iptables -A FORWARD -s $dos -j DROP
+    tres="$(mac 70:bc:10:5f:2a:15)" #AlanPC
+    iptables -A FORWARD -s $tres -j DROP
+    quatro="$(mac e8:e8:b7:67:b3:55)" #GS10
+    iptables -A FORWARD -s $quatro -j DROP
+    cinco="$(mac 34:97:F6:99:56:A9)" #BrianPC
+    iptables -A FORWARD -s $cinco -j DROP
     sleep 25
     echo "#--NON-SLOWING--#"
     iptables -F
