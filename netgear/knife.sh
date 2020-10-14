@@ -19,7 +19,7 @@ one(){
   alias ipt="iptables -L --line-numbers"
   alias iptv="iptables -L -v -n --line-numbers"
   # monitor in real time rules actively being traversed
-  alias iptw="watch -n 5 'iptables -nvL | grep -v \"0     0\"'"
+  alias iptw="bb watch -n 5 'iptables -nvL | grep -v \"0     0\"'"
   sleep 2
   echo "Your environment is set"
   sleep 1
