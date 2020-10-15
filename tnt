@@ -78,7 +78,7 @@ case $retval in
     ;;
       "WebBomb")
     timerTelnet(){
-      telnet 192.168.1.1 & sleep 5s;
+      telnet 192.168.1.1 & sleep 15s;
       kill $!
     }
     disableThem(){
