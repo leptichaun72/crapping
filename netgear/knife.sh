@@ -88,8 +88,8 @@ six(){
     iptables -A FORWARD -s $tres -j DROP
     quatro="$(mac e8:e8:b7:67:b3:55)" #GS10
     iptables -A FORWARD -s $quatro -j DROP
-    cinco="$(mac 34:97:F6:99:56:A9)" #BrianPC
-    iptables -A FORWARD -s $cinco -j DROP
+#    cinco="$(mac 34:97:F6:99:56:A9)" #BrianPC
+#    iptables -A FORWARD -s $cinco -j DROP
     sleep 25
     echo "#--NON-SLOWING--#"
     iptables -F
