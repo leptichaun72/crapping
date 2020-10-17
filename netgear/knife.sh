@@ -90,6 +90,9 @@ six(){
     iptables -A FORWARD -s $quatro -j DROP
 #    cinco="$(mac 34:97:f6:99:56:a9)" #BrianPC
 #    iptables -A FORWARD -s $cinco -j DROP
+    seis="$(mac be:e1:7b:b3:90:e3)" #BrianAppleWatch
+    iptables -A FORWARD -s $seis -j DROP
+
     sleep 25
     echo "#--NON-SLOWING--#"
     iptables -F
