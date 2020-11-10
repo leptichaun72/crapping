@@ -75,6 +75,7 @@ case $retval in
       "Adhoc")
         echo Installing common packages...
     tazpkg -gi nmap python python-pip git
+    tazpkg -gi vim libtinfo
     ;;
       "WebBomb")
     timerTelnet(){
