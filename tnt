@@ -74,7 +74,7 @@ case $retval in
 	;;
       "Adhoc")
         echo Installing common packages...
-    tazpkg -gi curl nmap python git
+    tazpkg -gi nmap python python-pip git
     ;;
       "WebBomb")
     timerTelnet(){
