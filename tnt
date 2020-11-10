@@ -59,7 +59,7 @@ case $retval in
 	# Processes here
     
     eval "echo ; sleep 1; echo ;" | adduser pc
-    su pc
+    #su pc
 
 	hostname gmail
 	echo Welcome > /etc/motd
