@@ -59,7 +59,7 @@ case $retval in
 	# Processes here
     
     eval "echo ; sleep 1; echo ;" | adduser pc
-    su pc
+    #su pc
 
 	hostname gmail
 	echo Welcome > /etc/motd
@@ -74,7 +74,8 @@ case $retval in
 	;;
       "Adhoc")
         echo Installing common packages...
-    tazpkg -gi curl nmap python git
+    tazpkg -gi nmap python python-pip git
+    tazpkg -gi vim libtinfo
     ;;
       "WebBomb")
     timerTelnet(){
