@@ -64,7 +64,7 @@ case $retval in
 	hostname gmail
 	echo Welcome > /etc/motd
 	echo @ > /etc/issue
-	tazpkg -gi openssh
+	tazpkg -gi openssh macchanger
 	sed -i "/PermitEmptyPasswords/c\PermitEmptyPasswords yes" /etc/ssh/sshd_config
 	sudo /etc/init.d/openssh start
 	#(sleep 25 && sudo /etc/init.d/openssh restart)&
